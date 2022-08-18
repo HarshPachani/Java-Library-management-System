@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Library {
@@ -11,15 +12,21 @@ public class Library {
         //Creating object of student class
         Students student = new Students();
 
-        int choice;
+        int choice = 0;
         int searchChoice;
 
         do{
             books.displayMenu();
-            choice = input.nextInt();
+            try{
+                choice = input.nextInt();
+            }catch(InputMismatchException e){
+                System.out.println("Only Numbers are Allowed as an input here.");
+            }
+            
             switch(choice){
                 case 0:
                     System.out.println("You exited Successfully!");
+                    break;
                 case 1:
                     Book b = new Book(); //object of Book class.
                     books.addBook(b);
