@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Books {
     //class data members
     Book theBooks[] = new Book[50]; //Array of an object.
-    public static int count;
+    public static int count = 0;
 
     Scanner input = new Scanner(System.in);
 
@@ -29,13 +29,13 @@ public class Books {
             if(this.compareBookObjects(b, this.theBooks[i]) == 0){
                 return;
             }
+        }
 
-            if(count < 50){
-                theBooks[count] = b;
-                count++;
-            }else{
-                System.out.println("No Space to Add More Books");
-            }
+        if(count < 50){
+            theBooks[count] = b;
+            count++;
+        }else{
+            System.out.println("No Space to Add More Books");
         }
     }
 
@@ -49,7 +49,7 @@ public class Books {
         sNo = input.nextInt();
 
         int flag = 0;
-        System.out.println("S.No\t\tAuthor\t\tAvailable Qty\t\tTotal Qty");
+        System.out.println("S.No\t\tBookName\t\tAuthor\t\tAvailable Qty\t\tTotal Qty");
         for (int i = 0; i < count; i++) {
             if(sNo == theBooks[i].sNo){
                 System.out.println(theBooks[i].sNo + "\t\t"
@@ -74,7 +74,7 @@ public class Books {
         String authorName = input.nextLine();
 
         int flag = 0;
-        System.out.println("S.No\t\tAuthor\t\tAvailable Qty\t\tTotal Qty");
+        System.out.println("S.No\t\tBookName\t\tAuthor\t\tAvailable Qty\t\tTotal Qty");
         for (int i = 0; i < count; i++) {
             if(authorName.equalsIgnoreCase(theBooks[i].authorName)){
                 System.out.println(theBooks[i].sNo + "\t\t"
@@ -92,7 +92,7 @@ public class Books {
     //Method 5 to display all books
     public void showAllBooks(){
         System.out.println("\t\t\t\tSHOWING ALL BOOKS\n");
-        System.out.println("S.No\t\tAuthor\t\tAvailable Qty\t\tTotal Qty");
+        System.out.println("S.No\t\tBook Name\t\tAuthor\t\tAvailable Qty\t\tTotal Qty");
         for (int i = 0; i < count; i++) {
             
             System.out.println(theBooks[i].sNo + "\t\t"
@@ -123,7 +123,7 @@ public class Books {
 
     //Method 7 To create menu.
     public void displayMenu(){
-        System.out.println("--------------------------------------------------------------------------------------------------");
+        System.out.println("------------------------------------------------------------------------------------------------------------------------");
         System.out.println("Press 0 to Exit Application");
         System.out.println("Press 1 to Add new Book.");
         System.out.println("Press 2 to Upgrade Quantity of a Book.");
@@ -133,7 +133,7 @@ public class Books {
         System.out.println("Press 6 to Show All Registered Students.");
         System.out.println("Press 7 to Check Out Book.");
         System.out.println("Press 8 to Check In Book.");
-        System.out.println("--------------------------------------------------------------------------------------------------");
+        System.out.println("------------------------------------------------------------------------------------------------------------------------");
     }
 
     //Method 8 To search the library

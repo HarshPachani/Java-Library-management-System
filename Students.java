@@ -1,7 +1,5 @@
 import java.util.Scanner;
 
-import javax.swing.text.AbstractDocument.Content;
-
 public class Students {
     //creating object of Scanner and Student class
     Scanner input = new Scanner(System.in);
@@ -13,7 +11,7 @@ public class Students {
     public void addStudent(Student s){
         for (int i = 0; i < count; i++) {
             if(s.regNum.equalsIgnoreCase(theStudent[i].regNum)){
-                System.out.println("Student of Reg Num: " + s.regNum + "is Ready Registered.");
+                System.out.println("Student of Reg Num: " + s.regNum + "is already Registered.");
                 return;
             }
         }
